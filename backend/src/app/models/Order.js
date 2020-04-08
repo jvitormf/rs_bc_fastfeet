@@ -8,6 +8,39 @@ class Order extends Model {
         canceled_at: Sequelize.DATE,
         start_date: Sequelize.DATE,
         end_date: Sequelize.DATE,
+        status: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            const updatedStatus = {
+              name: 'pendente',
+              foreground: '#C1BC35',
+              background: '#F0F0DF',
+            };
+
+            if (this.end_date) {
+              updatedStatus.name = 'entregue';
+              updatedStatus.foreground = '#2CA42B';
+              updatedStatus.background = '#DFF0DF';
+              return updatedStatus;
+            }
+
+            if (this.canceled_at) {
+              updatedStatus.name = 'cancelada';
+              updatedStatus.foreground = '#DE3B3B';
+              updatedStatus.background = '#FAB0B0';
+              return updatedStatus;
+            }
+
+            if (this.start_date) {
+              updatedStatus.name = 'retirada';
+              updatedStatus.foreground = '#4D85EE';
+              updatedStatus.background = '#BAD2FF';
+              return updatedStatus;
+            }
+
+            return updatedStatus;
+          },
+        },
       },
       {
         sequelize,

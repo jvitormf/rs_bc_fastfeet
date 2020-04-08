@@ -1,36 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Form } from '@rocketseat/unform';
-import { MdCheck, MdChevronLeft } from 'react-icons/md';
+
+import PageHeader from '../../../components/PageHeader';
 
 import history from '../../../services/history';
 
-import { Container, Button, BackButton, Produto, ComboBox } from './styles';
+import { Container, Produto, ComboBox } from './styles';
 
 export default function Order() {
-  function handleSubmit() {
-    history.push('/');
+  function handleBack() {
+    history.push('/order');
   }
+
+  function handleNewOrder() {}
   return (
     <Container>
-      <header>
-        <div>
-          <strong>Cadastro de encomendas</strong>
-          <div>
-            <Link to="/order">
-              <BackButton type="button">
-                <MdChevronLeft size={20} color="#FFF" />
-                Voltar
-              </BackButton>
-            </Link>
-            <Button type="button">
-              <MdCheck size={20} color="#FFF" />
-              Salvar
-            </Button>
-          </div>
-        </div>
-      </header>
-      <Form onSubmit={handleSubmit}>
+      <PageHeader
+        page="Cadastro de encomendas"
+        handleNew={handleNewOrder}
+        handleBack={handleBack}
+      />
+
+      <Form>
         <ComboBox>
           <div>
             <strong>Destinatário</strong>

@@ -1,8 +1,10 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
 export const Container = styled.div`
   max-width: 900px;
+  margin: 10px auto;
+
+  /* max-width: 900px;
   margin: 30px auto;
   display: flex;
   flex-direction: column;
@@ -32,7 +34,7 @@ export const Container = styled.div`
         margin-left: 60px;
       }
     }
-  }
+  } */
 
   form {
     width: 100%;
@@ -47,32 +49,32 @@ export const Container = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  text-align: center;
-  padding: 0 30px;
-  height: 40px;
-  background: #7d40e7;
-  font-weight: bold;
-  color: #fff;
-  border: 0;
-  border-radius: 4px;
-  font-size: 14px;
-  text-transform: uppercase;
-  transition: background 0.2s;
+// export const Button = styled.button`
+//   display: flex;
+//   align-items: center;
+//   text-align: center;
+//   padding: 0 30px;
+//   height: 40px;
+//   background: #7d40e7;
+//   font-weight: bold;
+//   color: #fff;
+//   border: 0;
+//   border-radius: 4px;
+//   font-size: 14px;
+//   text-transform: uppercase;
+//   transition: background 0.2s;
 
-  &:hover {
-    background: ${darken(0.03, '#7d40e7')};
-  }
-`;
+//   &:hover {
+//     background: ${darken(0.03, '#7d40e7')};
+//   }
+// `;
 
-export const BackButton = styled(Button)`
-  background: #cccccc;
-  &:hover {
-    background: ${darken(0.03, '#CCCCCC')};
-  }
-`;
+// export const BackButton = styled(Button)`
+//   background: #cccccc;
+//   &:hover {
+//     background: ${darken(0.03, '#CCCCCC')};
+//   }
+// `;
 
 export const ComboBox = styled.div`
   display: flex;

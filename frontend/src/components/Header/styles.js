@@ -28,7 +28,6 @@ export const Content = styled.div`
       font-size: 15px;
       color: #999999;
       padding-right: 20px;
-      /* color: #999999; */
     }
   }
 

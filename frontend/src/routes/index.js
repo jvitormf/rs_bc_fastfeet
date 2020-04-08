@@ -5,7 +5,7 @@ import Route from './Route';
 import SignIn from '../pages/SignIn';
 
 import Order from '../pages/Order';
-import OrderCreate from '../pages/Order/Create';
+import NewOrder from '../pages/Order/NewOrder';
 import OrderUpdate from '../pages/Order/Update';
 
 import Deliveryman from '../pages/Deliveryman';
@@ -24,7 +24,7 @@ export default function Routes() {
       <Route path="/" exact component={SignIn} />
 
       <Route path="/order" component={Order} isPrivate />
-      <Route path="/order_create" component={OrderCreate} isPrivate />
+      <Route path="/order_new" component={NewOrder} isPrivate />
       <Route path="/order_update" component={OrderUpdate} isPrivate />
 
       <Route path="/deliveryman" component={Deliveryman} isPrivate />

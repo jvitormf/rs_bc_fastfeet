@@ -12,7 +12,14 @@ class OrderController {
   async index(req, res) {
     const { page = 1 } = req.query;
     const orders = await Order.findAll({
-      attributes: ['id'],
+      attributes: [
+        'id',
+        'start_date',
+        'end_date',
+        'canceled_at',
+        'status',
+        'updated_at',
+      ],
       include: [
         {
           model: Recipient,
@@ -32,6 +39,7 @@ class OrderController {
           ],
         },
       ],
+      order: ['updated_at'],
       limit: 10,
       offset: (page - 1) * 10,
     });
