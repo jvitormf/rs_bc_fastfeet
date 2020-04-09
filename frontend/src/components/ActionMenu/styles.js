@@ -16,10 +16,11 @@ export const MenuList = styled.div`
   background: #fff;
   box-shadow: 0 0 5px #000000;
   border-radius: 4px;
-  left: calc(50% - ${(props) => (props.primary ? '88px' : '100px')});
+  left: calc(50% - ${(props) => (props.primary ? '60px' : '100px')});
   top: calc(50% + 15px);
   padding: 10px;
   display: ${(props) => (props.visible ? 'block' : 'none')};
+  z-index: 2;
 
   &::before {
     content: '';
@@ -41,6 +42,7 @@ export const Option = styled.div`
     display: flex;
     align-content: center;
     text-align: left;
+    line-height: 20px;
 
     & + div {
       margin-top: 10px;

@@ -25,23 +25,15 @@ export default function Routes() {
 
       <Route path="/order" component={Order} isPrivate />
       <Route path="/order_new" component={NewOrder} isPrivate />
-      <Route path="/order_update" component={OrderUpdate} isPrivate />
+      <Route path="/order_edit" component={OrderUpdate} isPrivate />
 
       <Route path="/deliveryman" component={Deliveryman} isPrivate />
-      <Route
-        path="/deliveryman_create"
-        component={DeliverymanCreate}
-        isPrivate
-      />
-      <Route
-        path="/deliveryman_update"
-        component={DeliverymanUpdate}
-        isPrivate
-      />
+      <Route path="/deliveryman_new" component={DeliverymanCreate} isPrivate />
+      <Route path="/deliveryman_edit" component={DeliverymanUpdate} isPrivate />
 
       <Route path="/recipient" component={Recipient} isPrivate />
-      <Route path="/recipient_create" component={RecipientCreate} isPrivate />
-      <Route path="/recipient_update" component={RecipientUpdate} isPrivate />
+      <Route path="/recipient_new" component={RecipientCreate} isPrivate />
+      <Route path="/recipient_edit" component={RecipientUpdate} isPrivate />
 
       <Route path="/problem" component={Problem} isPrivate />
 

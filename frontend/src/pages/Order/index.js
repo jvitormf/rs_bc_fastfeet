@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { MdEdit, MdVisibility, MdDeleteForever } from 'react-icons/md';
+import {
+  MdEdit,
+  MdVisibility,
+  MdDeleteForever,
+  MdChevronLeft,
+  MdChevronRight,
+  MdFirstPage,
+  MdLastPage,
+} from 'react-icons/md';
 
 import history from '../../services/history';
 
@@ -14,15 +22,46 @@ import api from '../../services/api';
 import { Container, Table } from './styles';
 
 export default function Order() {
+  const [orderList, setOrderList] = useState([]);
+  const [page, setPage] = useState(1);
+  const [result, setResult] = useState();
+
+  useEffect(() => {
+    async function loadOrderList() {
+      const response = await api.get('orders', {
+        params: { page },
+      });
+
+      setOrderList(response.data.rows);
+      setResult(response.data.count);
+    }
+
+    loadOrderList();
+  }, [page, result]);
+
+  function handleFirstPage() {
+    setPage(1);
+  }
+
+  function handlePrevPage() {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  }
+
+  function handleNextPage() {
+    if (page < result / 10) {
+      setPage(page + 1);
+    }
+  }
+
+  function handleLastPage() {
+    setPage(Math.ceil(result / 10));
+  }
+
   function handleNewOrder() {
     history.push('/order_new');
   }
-
-  const status = {
-    name: 'pendente',
-    foreground: '#C1BC35',
-    background: '#F0F0DF',
-  };
 
   return (
     <Container>
@@ -45,52 +84,66 @@ export default function Order() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <p>#01</p>
-            </td>
-            <td>
-              <p>Ludwig Van Beethoven</p>
-            </td>
-            <td>
-              <div>
-                <OrderTableDeliveryman url={null} name="John Doe" />
-              </div>
-            </td>
-            <td>
-              <p>Rio do sul</p>
-            </td>
-            <td>
-              <p>SC</p>
-            </td>
-            <td>
-              <OrderStatus
-                foreground={status.foreground}
-                background={status.background}
-                name={status.name}
-              />
-            </td>
-            <td>
-              <ActionMenu primary>
-                <>
-                  <div>
-                    <MdVisibility size={20} color="#8E5BE8" />
-                    <Link to="/">Visualizar</Link>
-                  </div>
-                  <div>
-                    <MdEdit size={20} color="#4D85EE" />
-                    <Link to="/">Editar</Link>
-                  </div>
-                  <div>
-                    <MdDeleteForever size={20} color="#DE3B3B" />
-                    <Link to="/">Excluir</Link>
-                  </div>
-                </>
-              </ActionMenu>
-            </td>
-          </tr>
+          {orderList.map((order) => (
+            <tr key={order.id}>
+              <td>#{order.id}</td>
+              <td>{order.recipient.name}</td>
+              <td>
+                <div>
+                  <OrderTableDeliveryman
+                    url={order.deliveryman.avatar}
+                    name={order.deliveryman.name}
+                  />
+                </div>
+              </td>
+              <td>{order.recipient.city}</td>
+              <td>{order.recipient.state}</td>
+              <td>
+                <OrderStatus
+                  foreground={order.status.foreground}
+                  background={order.status.background}
+                  name={order.status.name}
+                />
+              </td>
+              <td>
+                <ActionMenu primary>
+                  <>
+                    <div>
+                      <MdVisibility size={22} color="#8E5BE8" />
+                      <Link to="/">Visualizar</Link>
+                    </div>
+                    <div>
+                      <MdEdit size={22} color="#4D85EE" />
+                      <Link to="/order_edit">Editar</Link>
+                    </div>
+                    <div>
+                      <MdDeleteForever size={22} color="#DE3B3B" />
+                      <Link to="/">Excluir</Link>
+                    </div>
+                  </>
+                </ActionMenu>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </Table>
+      <footer>
+        <div>
+          <button type="button" onClick={handleFirstPage}>
+            <MdFirstPage size={36} color="#FFF" />
+          </button>
+          <button type="button" onClick={handlePrevPage}>
+            <MdChevronLeft size={36} color="#FFF" />
+          </button>
+          <p>{page}</p>
+          <button type="button" onClick={handleNextPage}>
+            <MdChevronRight size={36} color="#FFF" />
+          </button>
+          <button type="button" onClick={handleLastPage}>
+            <MdLastPage size={36} color="#FFF" />
+          </button>
+        </div>
+      </footer>
     </Container>
   );
 }

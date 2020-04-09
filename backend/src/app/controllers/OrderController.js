@@ -11,7 +11,7 @@ import OrderCreateMail from '../jobs/OrderCreationMail';
 class OrderController {
   async index(req, res) {
     const { page = 1 } = req.query;
-    const orders = await Order.findAll({
+    const orders = await Order.findAndCountAll({
       attributes: [
         'id',
         'start_date',
