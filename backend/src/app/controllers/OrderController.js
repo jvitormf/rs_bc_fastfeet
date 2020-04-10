@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { Op } from 'sequelize';
 
 import Order from '../models/Order';
 import Recipient from '../models/Recipient';
@@ -10,10 +11,16 @@ import OrderCreateMail from '../jobs/OrderCreationMail';
 
 class OrderController {
   async index(req, res) {
-    const { page = 1 } = req.query;
+    const { page = 1, product = '' } = req.query;
     const orders = await Order.findAndCountAll({
+      where: {
+        product: {
+          [Op.or]: { [Op.iLike]: '%%', [Op.iLike]: `%${product}%` },
+        },
+      },
       attributes: [
         'id',
+        'product',
         'start_date',
         'end_date',
         'canceled_at',

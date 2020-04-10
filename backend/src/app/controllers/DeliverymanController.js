@@ -1,11 +1,17 @@
 import * as Yup from 'yup';
+import { Op } from 'sequelize';
 import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
 
 class DeliverymanController {
   async index(req, res) {
-    const { page = 1 } = req.query;
-    const deliverymans = await Deliveryman.findAll({
+    const { page = 1, name = '' } = req.query;
+    const deliverymans = await Deliveryman.findAndCountAll({
+      where: {
+        name: {
+          [Op.or]: { [Op.iLike]: '%%', [Op.iLike]: `%${name}%` },
+        },
+      },
       attributes: ['id', 'name', 'email', 'avatar_id'],
       include: [
         {
