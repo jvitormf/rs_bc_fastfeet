@@ -25,6 +25,7 @@ export default function Order() {
   const [orderList, setOrderList] = useState([]);
   const [page, setPage] = useState(1);
   const [result, setResult] = useState();
+  const [filter, setFilter] = useState();
 
   useEffect(() => {
     async function loadOrderList() {
@@ -38,6 +39,10 @@ export default function Order() {
 
     loadOrderList();
   }, [page, result]);
+
+  function handleFilter() {
+    setFilter();
+  }
 
   function handleFirstPage() {
     setPage(1);
@@ -69,7 +74,9 @@ export default function Order() {
         primary
         page="Gerenciando encomendas"
         handleNew={handleNewOrder}
-      />
+      >
+        <input type="text" placeholder="Buscar por encomendas" />
+      </PageHeader>
 
       <Table>
         <thead>

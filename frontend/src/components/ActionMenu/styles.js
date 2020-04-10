@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   position: relative;
@@ -7,7 +8,14 @@ export const Container = styled.div`
 export const Badge = styled.button`
   background: none;
   border: 0;
+  width: 20px;
+  height: 20px;
   position: relative;
+  border-radius: 50%;
+
+  &:hover {
+    background: ${darken(0.03, '#F4EFFC')};
+  }
 `;
 
 export const MenuList = styled.div`

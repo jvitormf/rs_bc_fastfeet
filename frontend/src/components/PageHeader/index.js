@@ -6,22 +6,18 @@ import { MdAdd, MdCheck, MdChevronLeft } from 'react-icons/md';
 import { Container, Header, BackButton, Button } from './styles';
 
 export default function PageHeader({
+  children,
   primary = false,
   page,
   handleNew,
   handleBack,
 }) {
-  const [, pagina] = page.split(' ');
   return (
     <Container>
       <Header primary={primary}>
         <strong>{page}</strong>
         <div>
-          {primary ? (
-            <input type="text" placeholder={`Buscar por ${pagina}`} />
-          ) : (
-            ''
-          )}
+          {children}
           <div>
             {primary ? (
               <Button type="button" onClick={handleNew}>
@@ -50,12 +46,14 @@ export default function PageHeader({
 PageHeader.propTypes = {
   primary: PropTypes.bool,
   page: PropTypes.string.isRequired,
+  children: PropTypes.element,
   handleNew: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
     .isRequired,
   handleBack: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
 };
 
 PageHeader.defaultProps = {
+  children: <></>,
   primary: false,
   handleBack: () => {},
 };
