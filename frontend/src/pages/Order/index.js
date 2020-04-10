@@ -12,10 +12,10 @@ import {
 
 import history from '../../services/history';
 
-import ActionMenu from '../../components/ActionMenu';
-import OrderStatus from '../../components/OrderStatus';
+import ActionMenu from '../../components/Table/ActionMenu';
+import OrderStatus from '../../components/Table/OrderStatus';
 import PageHeader from '../../components/PageHeader';
-import OrderTableDeliveryman from '../../components/OrderTableDeliveryman';
+import OrderTableDeliveryman from '../../components/Table/OrderTableDeliveryman';
 
 import api from '../../services/api';
 
