@@ -23,9 +23,9 @@ export default function Routes() {
     <Switch>
       <Route path="/" exact component={SignIn} />
 
+      <Route path="/order/new" component={NewOrder} isPrivate />
+      <Route path="/order/edit" component={OrderUpdate} isPrivate />
       <Route path="/order" component={Order} isPrivate />
-      <Route path="/order_new" component={NewOrder} isPrivate />
-      <Route path="/order_edit" component={OrderUpdate} isPrivate />
 
       <Route path="/deliveryman" component={Deliveryman} isPrivate />
       <Route path="/deliveryman_new" component={DeliverymanCreate} isPrivate />
