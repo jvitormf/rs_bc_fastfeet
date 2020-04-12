@@ -12,7 +12,7 @@ export const Header = styled.header`
 
   strong {
     display: block;
-    margin-top: 10px;
+    margin-top: 5px;
     padding: 5px 0;
     font-size: 24px;
     font-weight: bold;
@@ -20,7 +20,7 @@ export const Header = styled.header`
   }
 
   div {
-    margin-top: 10px;
+    margin-top: 5px;
     display: flex;
     align-items: center;
     align-self: center;
@@ -41,10 +41,11 @@ export const Header = styled.header`
 
 export const Button = styled.button`
   display: flex;
+  margin-top: 3px;
   align-items: center;
   text-align: center;
   padding: 0 30px;
-  height: 40px;
+  height: 42px;
   background: #7d40e7;
   font-weight: bold;
   color: #fff;

@@ -20,17 +20,29 @@ export default function PageHeader({
           {children}
           <div>
             {primary ? (
-              <Button type="button" onClick={handleNew}>
+              <Button
+                type="button"
+                onClick={handleNew}
+                className="ActionButton"
+              >
                 <MdAdd size={20} color="#FFF" />
                 cadastrar
               </Button>
             ) : (
               <>
-                <BackButton type="button" onClick={handleBack}>
+                <BackButton
+                  type="button"
+                  onClick={handleBack}
+                  className="ActionButton"
+                >
                   <MdChevronLeft size={20} color="#FFF" />
                   Voltar
                 </BackButton>
-                <Button type="button" onClick={handleNew}>
+                <Button
+                  type="button"
+                  onClick={handleNew}
+                  className="ActionButton"
+                >
                   <MdCheck size={20} color="#FFF" />
                   salvar
                 </Button>

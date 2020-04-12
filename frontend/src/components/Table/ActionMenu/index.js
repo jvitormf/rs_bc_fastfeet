@@ -17,7 +17,11 @@ export default function ActionMenu({ children, primary }) {
       <Badge onClick={handleToggleVisible}>
         <MdMoreHoriz size={20} color="#C6C6C6" />
       </Badge>
-      <MenuList visible={visible} primary={primary}>
+      <MenuList
+        visible={visible}
+        primary={primary}
+        onClick={() => setVisible(false)}
+      >
         <Option>{children}</Option>
       </MenuList>
     </Container>
