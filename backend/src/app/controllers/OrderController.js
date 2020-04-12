@@ -31,12 +31,21 @@ class OrderController {
         {
           model: Recipient,
           as: 'recipient',
-          attributes: ['id', 'name', 'state', 'city'],
+          attributes: [
+            'id',
+            'name',
+            'street',
+            'number',
+            'complement',
+            'state',
+            'city',
+            'zip_code',
+          ],
         },
         {
           model: Deliveryman,
           as: 'deliveryman',
-          attributes: ['id', 'name', 'avatar_id'],
+          attributes: ['id', 'name', 'email', 'avatar_id'],
           include: [
             {
               model: File,
@@ -44,6 +53,11 @@ class OrderController {
               attributes: ['name', 'path', 'url'],
             },
           ],
+        },
+        {
+          model: File,
+          as: 'signature',
+          attributes: ['name', 'path', 'url'],
         },
       ],
       order: ['updated_at'],
