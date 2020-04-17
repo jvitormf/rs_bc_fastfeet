@@ -5,41 +5,30 @@ export const Container = styled.div`
   max-width: 900px;
   margin: 10px auto;
 
-  footer {
-    margin-top: 20px;
+  .show {
+    display: block !important;
+  }
 
-    > div {
-      display: flex;
-      justify-content: center;
+  #clearFilter {
+    display: flex;
+    margin-top: 3px;
+    margin-left: 5px;
+    display: flex;
+    padding: 0 10px;
+    height: 42px;
+    background: #7d40e7;
+    border: 0;
+    border-radius: 4px;
+    transition: background 0.2s;
 
-      button {
-        display: flex;
-        justify-content: space-around;
-        width: max-content;
-        background: #7d40e7;
-        border: 0;
-        border-radius: 4px;
-
-        &:hover {
-          background: ${darken(0.03, '#7d40e7')};
-        }
-
-        & + button {
-          margin-left: 10px;
-        }
-      }
-
-      p {
-        padding: 0 20px;
-        font-size: 20px;
-        font-weight: bold;
-        align-self: center;
-      }
+    &:hover {
+      background: ${darken(0.03, '#7d40e7')};
     }
   }
 `;
 
 export const Table = styled.table`
+  display: table;
   width: 100%;
   margin-top: 10px;
   border-collapse: separate;
@@ -92,5 +81,78 @@ export const Table = styled.table`
         border-bottom-right-radius: 4px;
       }
     }
+  }
+`;
+
+export const Pagination = styled.div`
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+
+  button {
+    display: flex;
+    justify-content: space-around;
+    width: max-content;
+    background: #7d40e7;
+    border: 0;
+    border-radius: 4px;
+
+    &:hover {
+      background: ${darken(0.03, '#7d40e7')};
+    }
+
+    & + button {
+      margin-left: 10px;
+    }
+  }
+
+  p {
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    align-self: center;
+  }
+`;
+
+export const AddressInfo = styled.div`
+  strong {
+    font-size: 14px;
+  }
+
+  p {
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+`;
+
+export const DateInfo = styled.div`
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+  > strong {
+    font-size: 14px;
+  }
+
+  p {
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+`;
+
+export const SignatureInfo = styled.div`
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+
+  img {
+    margin: 15px;
+    padding: 5px;
+    width: 250px;
+    height: 50px;
   }
 `;

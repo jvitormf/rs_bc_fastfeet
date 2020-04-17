@@ -50,14 +50,14 @@ class OrderController {
             {
               model: File,
               as: 'avatar',
-              attributes: ['name', 'path', 'url'],
+              attributes: ['id', 'name', 'path', 'url'],
             },
           ],
         },
         {
           model: File,
           as: 'signature',
-          attributes: ['name', 'path', 'url'],
+          attributes: ['id', 'name', 'path', 'url'],
         },
       ],
       order: ['updated_at'],

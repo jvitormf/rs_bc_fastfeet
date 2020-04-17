@@ -1,36 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { format, parseISO } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import { Link } from 'react-router-dom';
 import {
-  MdEdit,
-  MdVisibility,
-  MdDeleteForever,
   MdChevronLeft,
   MdChevronRight,
   MdFirstPage,
   MdLastPage,
+  MdClear,
 } from 'react-icons/md';
-
-import history from '../../services/history';
 
 import ActionMenu from '../../components/Table/ActionMenu';
 import OrderStatus from '../../components/Table/OrderStatus';
 import PageHeader from '../../components/PageHeader';
 import OrderTableDeliveryman from '../../components/Table/OrderTableDeliveryman';
 
+import Modal from '../../components/Modal';
+
+import history from '../../services/history';
 import api from '../../services/api';
 
-import { Container, Table } from './styles';
+import logo from '../../assets/logo.svg';
+
+import {
+  Container,
+  Table,
+  Pagination,
+  AddressInfo,
+  DateInfo,
+  SignatureInfo,
+} from './styles';
 
 export default function Order() {
   const [orderList, setOrderList] = useState([]);
   const [page, setPage] = useState(1);
   const [result, setResult] = useState();
-  const [filter, setFilter] = useState();
+  const [filter, setFilter] = useState({ product: '' });
+
+  const modalRef = useRef(null);
 
   useEffect(() => {
     async function loadOrderList() {
       const response = await api.get('orders', {
-        params: { page },
+        params: { page, product: filter.product },
       });
 
       setOrderList(response.data.rows);
@@ -38,10 +50,14 @@ export default function Order() {
     }
 
     loadOrderList();
-  }, [page, result]);
+  }, [page, result, filter]);
 
-  function handleFilter() {
-    setFilter();
+  function handleFilter(e) {
+    setFilter({ product: e.target.value });
+  }
+
+  function handleClearFilter() {
+    setFilter({ product: '' });
   }
 
   function handleFirstPage() {
@@ -65,7 +81,71 @@ export default function Order() {
   }
 
   function handleNewOrder() {
-    history.push('/order_new');
+    history.push('/order/new');
+  }
+
+  const content = (order) => {
+    return (
+      <>
+        <AddressInfo>
+          <p>
+            {`${order.recipient.street}, ${order.recipient.number}${
+              order.recipient.complement
+                ? `, ${order.recipient.complement}`
+                : ''
+            }`}
+          </p>
+          <p>{`${order.recipient.city} - ${order.recipient.state}`}</p>
+          <p>{`${order.recipient.zip_code}`}</p>
+        </AddressInfo>
+        <DateInfo>
+          <strong>Datas</strong>
+          <p>
+            <strong>Retirada: </strong>
+            {order.start_date
+              ? format(parseISO(order.start_date), 'dd/MM/yyyy', {
+                  locale: pt,
+                })
+              : ''}
+          </p>
+          <p>
+            <strong>Entrega: </strong>
+            {order.end_date
+              ? format(parseISO(order.end_date), 'dd/MM/yyyy', {
+                  locale: pt,
+                })
+              : ''}
+          </p>
+          {order.canceled_at ? (
+            <p>
+              <strong>Cancelado: </strong>
+              {order.canceled_at
+                ? format(parseISO(order.canceled_at), 'dd/MM/yyyy', {
+                    locale: pt,
+                  })
+                : ''}
+            </p>
+          ) : (
+            ''
+          )}
+        </DateInfo>
+        <SignatureInfo>
+          <strong>Assinatura do destinatário</strong>
+          <img src={logo} alt="Assinatura" />
+        </SignatureInfo>
+      </>
+    );
+  };
+
+  function handleView(order) {
+    modalRef.current.setModalContent(content(order));
+    modalRef.current.show();
+  }
+  function handleEdit() {
+    history.push('/order/edit');
+  }
+  function handleDelete() {
+    history.push('/order/edit');
   }
 
   return (
@@ -75,9 +155,23 @@ export default function Order() {
         page="Gerenciando encomendas"
         handleNew={handleNewOrder}
       >
-        <input type="text" placeholder="Buscar por encomendas" />
+        <div>
+          <input
+            value={filter.product}
+            onChange={handleFilter}
+            name="filter"
+            type="text"
+            placeholder="Buscar por encomendas"
+          />
+          {filter.product ? (
+            <button id="clearFilter" type="button" onClick={handleClearFilter}>
+              <MdClear size={22} color="#FFFFFF" />
+            </button>
+          ) : (
+            ''
+          )}
+        </div>
       </PageHeader>
-
       <Table>
         <thead>
           <tr>
@@ -113,44 +207,32 @@ export default function Order() {
                 />
               </td>
               <td>
-                <ActionMenu primary>
-                  <>
-                    <div>
-                      <MdVisibility size={22} color="#8E5BE8" />
-                      <Link to="/">Visualizar</Link>
-                    </div>
-                    <div>
-                      <MdEdit size={22} color="#4D85EE" />
-                      <Link to="/order_edit">Editar</Link>
-                    </div>
-                    <div>
-                      <MdDeleteForever size={22} color="#DE3B3B" />
-                      <Link to="/">Excluir</Link>
-                    </div>
-                  </>
-                </ActionMenu>
+                <ActionMenu
+                  onView={() => handleView(order)}
+                  onEdit={handleEdit}
+                  OnDelete={handleDelete}
+                />
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
-      <footer>
-        <div>
-          <button type="button" onClick={handleFirstPage}>
-            <MdFirstPage size={36} color="#FFF" />
-          </button>
-          <button type="button" onClick={handlePrevPage}>
-            <MdChevronLeft size={36} color="#FFF" />
-          </button>
-          <p>{page}</p>
-          <button type="button" onClick={handleNextPage}>
-            <MdChevronRight size={36} color="#FFF" />
-          </button>
-          <button type="button" onClick={handleLastPage}>
-            <MdLastPage size={36} color="#FFF" />
-          </button>
-        </div>
-      </footer>
+      <Pagination>
+        <button type="button" onClick={handleFirstPage}>
+          <MdFirstPage size={36} color="#FFF" />
+        </button>
+        <button type="button" onClick={handlePrevPage}>
+          <MdChevronLeft size={36} color="#FFF" />
+        </button>
+        <p>{page}</p>
+        <button type="button" onClick={handleNextPage}>
+          <MdChevronRight size={36} color="#FFF" />
+        </button>
+        <button type="button" onClick={handleLastPage}>
+          <MdLastPage size={36} color="#FFF" />
+        </button>
+      </Pagination>
+      <Modal ref={modalRef} modalTitle="Informações da Encomenda" />
     </Container>
   );
 }
