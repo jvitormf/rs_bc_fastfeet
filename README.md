@@ -36,8 +36,8 @@
     * [Back-end](#back-end-configuration)
     * [Front-end](#front-end-configuration)
 * [License](#memo-License)
-* [Contact](#-contact)
-* [Acknowledgements](#-acknowledgements)
+* [Contact](#e-mail-contact)
+* [Acknowledgements](#exclamation-acknowledgements)
 <!-- * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing) -->
@@ -234,7 +234,7 @@ Distributed under the MIT License. See [LICENSE](LICENSE.md) for more informatio
 
 
 <!-- CONTACT -->
-# ✉️ Contact
+# :e-mail: Contact
 
 João Vitor - <j.vitor.mf@gmail.com>
 
@@ -246,7 +246,7 @@ Project Link: [https://github.com/jvitormf/rs_bc_fastfeet](https://github.com/jv
 
 
 <!-- ACKNOWLEDGEMENTS -->
-# ❗️ Acknowledgements
+# :exclamation: Acknowledgements
 
 * [FastFeet step 1](https://github.com/jvitormf/bootcamp-gostack-desafio-02)
 * [FastFeet step 2](https://github.com/jvitormf/bootcamp-gostack-desafio-03)
