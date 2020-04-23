@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdAdd, MdMoreHoriz } from 'react-icons/md';
 
-import history from '../../services/history';
+// import history from '../../services/history';
 
 import avatar from '../../assets/avatar.png';
-import api from '../../services/api';
+// import api from '../../services/api';
 
 import { Container, Table } from './styles';
 

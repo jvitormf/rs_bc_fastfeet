@@ -1,0 +1,55 @@
+import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+
+import { useField } from '@unform/core';
+
+import { Select } from './styles';
+
+export default function AsyncReactSelect({ name, label, ...rest }) {
+  const selectRef = useRef(null);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
+
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      ref: selectRef.current,
+      path: 'select.state.value',
+      getValue: (ref) => {
+        if (rest.isMulti) {
+          if (!ref.select.state.value) {
+            return [];
+          }
+
+          return ref.select.state.value.map((option) => option.value);
+        }
+        if (!ref.select.state.value) {
+          return '';
+        }
+
+        return ref.select.state.value.value;
+      },
+    });
+  }, [fieldName, registerField, rest.isMulti]);
+
+  return (
+    <>
+      {label && <label htmlFor={fieldName}>{label}</label>}
+      <Select
+        cacheOptions
+        defaultValue={defaultValue}
+        ref={selectRef}
+        // onChange={(selected) => setSelectValue(selected)}
+        noOptionsMessage={() => 'Nenhuma opção encontrada'}
+        classNamePrefix="react-select"
+        {...rest}
+      />
+
+      {error && <span>{error}</span>}
+    </>
+  );
+}
+
+AsyncReactSelect.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+};

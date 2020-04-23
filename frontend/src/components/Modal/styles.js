@@ -22,11 +22,7 @@ export const Box = styled.div`
 
     button {
       border: 0;
-      background: transparent;
-
-      svg {
-        transition: fill 0.2s;
-      }
+      background: none;
 
       &:hover {
         svg {
@@ -42,7 +38,7 @@ export const Container = styled.div`
   top: 0;
   left: 0;
 
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   width: 100%;
   height: 100%;
 

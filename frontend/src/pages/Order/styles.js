@@ -5,10 +5,6 @@ export const Container = styled.div`
   max-width: 900px;
   margin: 10px auto;
 
-  .show {
-    display: block !important;
-  }
-
   #clearFilter {
     display: flex;
     margin-top: 3px;
@@ -150,9 +146,48 @@ export const SignatureInfo = styled.div`
   flex-direction: column;
 
   img {
+    align-self: center;
     margin: 15px;
     padding: 5px;
     width: 250px;
     height: 50px;
+  }
+`;
+
+export const ConfirmMessage = styled.div`
+  font-size: 16px;
+`;
+
+export const ConfirmOptions = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const ConfirmButton = styled.button`
+  display: flex;
+  margin-top: 3px;
+  align-items: center;
+  text-align: center;
+  padding: 0 30px;
+  height: 42px;
+  background: #7d40e7;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: background 0.2s;
+
+  &:hover {
+    background: ${darken(0.06, '#7d40e7')};
+  }
+`;
+
+export const CancelButton = styled(ConfirmButton)`
+  background: #cccccc;
+  &:hover {
+    background: ${darken(0.06, '#CCCCCC')};
   }
 `;

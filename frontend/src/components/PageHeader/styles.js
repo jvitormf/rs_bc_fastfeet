@@ -25,16 +25,11 @@ export const Header = styled.header`
     align-items: center;
     align-self: center;
     justify-content: ${(props) =>
-      props.primary ? 'space-between' : 'flex-end'};
+      props.search ? 'space-between' : 'flex-end'};
 
     input {
-      height: 36px;
       margin-top: 5px;
-      border: solid 2px;
-      border-color: #dddddd;
-      height: 45px;
-      border-radius: 4px;
-      padding: 0 15px;
+      font-size: 14px;
     }
   }
 `;
@@ -56,7 +51,7 @@ export const Button = styled.button`
   transition: background 0.2s;
 
   &:hover {
-    background: ${darken(0.03, '#7d40e7')};
+    background: ${darken(0.06, '#7d40e7')};
   }
 `;
 
@@ -64,6 +59,6 @@ export const BackButton = styled(Button)`
   background: #cccccc;
   margin-right: 20px;
   &:hover {
-    background: ${darken(0.03, '#CCCCCC')};
+    background: ${darken(0.06, '#CCCCCC')};
   }
 `;

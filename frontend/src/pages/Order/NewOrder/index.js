@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from '@rocketseat/unform';
+import { Form } from '@unform/web';
 
 import PageHeader from '../../../components/PageHeader';
 

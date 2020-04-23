@@ -60,12 +60,32 @@ class OrderController {
           attributes: ['id', 'name', 'path', 'url'],
         },
       ],
-      order: ['updated_at'],
+      order: [['updated_at', 'DESC']],
       limit: 10,
       offset: (page - 1) * 10,
     });
 
     return res.json(orders);
+  }
+
+  async indexID(req, res) {
+    const order = await Order.findByPk(req.params.orderId, {
+      attributes: ['id', 'product'],
+      include: [
+        {
+          model: Recipient,
+          as: 'recipient',
+          attributes: ['id', 'name'],
+        },
+        {
+          model: Deliveryman,
+          as: 'deliveryman',
+          attributes: ['id', 'name'],
+        },
+      ],
+    });
+
+    return res.json(order);
   }
 
   async store(req, res) {
@@ -149,9 +169,13 @@ class OrderController {
   async delete(req, res) {
     const order = await Order.findByPk(req.params.orderId);
 
+    if (!order) {
+      return res.status(400).json({ error: 'Order not found.' });
+    }
+
     await order.destroy();
 
-    return res.json({ message: 'Order deleted!' });
+    return res.status(200).json({ message: 'Order deleted!' });
   }
 }
 

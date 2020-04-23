@@ -60,6 +60,7 @@ routes.put('/deliverymans/:deliverymanId', DeliverymanController.update);
 routes.delete('/deliverymans/:deliverymanId', DeliverymanController.delete);
 
 routes.get('/orders', OrderController.index);
+routes.get('/orders/:orderId', OrderController.indexID);
 routes.post('/orders', OrderController.store);
 routes.put('/orders/:orderId', OrderController.update);
 routes.delete('/orders/:orderId', OrderController.delete);

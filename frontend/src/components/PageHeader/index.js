@@ -7,19 +7,19 @@ import { Container, Header, BackButton, Button } from './styles';
 
 export default function PageHeader({
   children,
-  primary = false,
+  search = false,
   page,
   handleNew,
   handleBack,
 }) {
   return (
     <Container>
-      <Header primary={primary}>
+      <Header search={search}>
         <strong>{page}</strong>
         <div>
           {children}
           <div>
-            {primary ? (
+            {search ? (
               <Button
                 type="button"
                 onClick={handleNew}
@@ -56,7 +56,7 @@ export default function PageHeader({
 }
 
 PageHeader.propTypes = {
-  primary: PropTypes.bool,
+  search: PropTypes.bool,
   page: PropTypes.string.isRequired,
   children: PropTypes.element,
   handleNew: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
@@ -66,6 +66,6 @@ PageHeader.propTypes = {
 
 PageHeader.defaultProps = {
   children: <></>,
-  primary: false,
+  search: false,
   handleBack: () => {},
 };

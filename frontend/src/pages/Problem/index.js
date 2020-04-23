@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { MdMoreHoriz } from 'react-icons/md';
 
-import history from '../../services/history';
+// import history from '../../services/history';
 
-import avatar from '../../assets/avatar.png';
-import api from '../../services/api';
+// import avatar from '../../assets/avatar.png';
+// import api from '../../services/api';
 
 import { Container, Table } from './styles';
 

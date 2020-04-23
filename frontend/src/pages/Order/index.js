@@ -1,26 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { format, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt';
-import { Link } from 'react-router-dom';
+
 import {
   MdChevronLeft,
   MdChevronRight,
   MdFirstPage,
   MdLastPage,
   MdClear,
+  MdDeleteForever,
+  MdCancel,
 } from 'react-icons/md';
 
 import ActionMenu from '../../components/Table/ActionMenu';
 import OrderStatus from '../../components/Table/OrderStatus';
 import PageHeader from '../../components/PageHeader';
 import OrderTableDeliveryman from '../../components/Table/OrderTableDeliveryman';
-
 import Modal from '../../components/Modal';
 
 import history from '../../services/history';
 import api from '../../services/api';
 
-import logo from '../../assets/logo.svg';
+import { findRequest } from '../../store/modules/order/actions';
 
 import {
   Container,
@@ -29,15 +32,23 @@ import {
   AddressInfo,
   DateInfo,
   SignatureInfo,
+  ConfirmMessage,
+  ConfirmOptions,
+  ConfirmButton,
+  CancelButton,
 } from './styles';
 
 export default function Order() {
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.order.loading);
+
   const [orderList, setOrderList] = useState([]);
   const [page, setPage] = useState(1);
   const [result, setResult] = useState();
   const [filter, setFilter] = useState({ product: '' });
 
   const modalRef = useRef(null);
+  const confirmModalRef = useRef(null);
 
   useEffect(() => {
     async function loadOrderList() {
@@ -83,6 +94,62 @@ export default function Order() {
   function handleNewOrder() {
     history.push('/order/new');
   }
+
+  function handleEditOrder(id) {
+    dispatch(findRequest(id));
+    // history.push('/order/edit');
+  }
+
+  async function handleDeleteOrder(order) {
+    const { status } = await api.delete(`orders/${order.id}`);
+    if (status === 200) {
+      toast.success('Encomenda excluída com sucesso!');
+      setFilter('');
+    } else {
+      toast.error('Falha ao excluir encomenda!');
+    }
+    confirmModalRef.current.hide();
+  }
+
+  const confirmContent = (order) => {
+    return (
+      <>
+        <ConfirmMessage>
+          <p>Deseja excluir a encomenda selecionada?</p>
+          <br />
+          <p>
+            <strong>ID: </strong> {order.id}
+          </p>
+          <p>
+            <strong>Produto: </strong> {order.product}
+          </p>
+          <p>
+            <strong>Destinatário: </strong> {order.recipient.name}
+          </p>
+          <p>
+            <strong>Entregador: </strong> {order.deliveryman.name}
+          </p>
+          <p>
+            <strong>Status: </strong> {order.status.name}
+          </p>
+        </ConfirmMessage>
+        <ConfirmOptions>
+          <ConfirmButton type="button" onClick={() => handleDeleteOrder(order)}>
+            <MdDeleteForever size={22} color="#FFF" />
+            Excluir
+          </ConfirmButton>
+
+          <CancelButton
+            type="button"
+            onClick={() => confirmModalRef.current.hide()}
+          >
+            <MdCancel size={22} color="#FFF" />
+            Cancelar
+          </CancelButton>
+        </ConfirmOptions>
+      </>
+    );
+  };
 
   const content = (order) => {
     return (
@@ -131,7 +198,11 @@ export default function Order() {
         </DateInfo>
         <SignatureInfo>
           <strong>Assinatura do destinatário</strong>
-          <img src={logo} alt="Assinatura" />
+          {order.signature ? (
+            <img src={order.signature.url} alt="Assinatura do destinatário" />
+          ) : (
+            ''
+          )}
         </SignatureInfo>
       </>
     );
@@ -141,17 +212,16 @@ export default function Order() {
     modalRef.current.setModalContent(content(order));
     modalRef.current.show();
   }
-  function handleEdit() {
-    history.push('/order/edit');
-  }
-  function handleDelete() {
-    history.push('/order/edit');
+
+  function handleConfirmDelete(order) {
+    confirmModalRef.current.setModalContent(confirmContent(order));
+    confirmModalRef.current.show();
   }
 
   return (
     <Container>
       <PageHeader
-        primary
+        search
         page="Gerenciando encomendas"
         handleNew={handleNewOrder}
       >
@@ -209,8 +279,8 @@ export default function Order() {
               <td>
                 <ActionMenu
                   onView={() => handleView(order)}
-                  onEdit={handleEdit}
-                  OnDelete={handleDelete}
+                  onEdit={() => dispatch(findRequest(order.id))}
+                  OnDelete={() => handleConfirmDelete(order)}
                 />
               </td>
             </tr>
@@ -232,7 +302,8 @@ export default function Order() {
           <MdLastPage size={36} color="#FFF" />
         </button>
       </Pagination>
-      <Modal ref={modalRef} modalTitle="Informações da Encomenda" />
+      <Modal ref={modalRef} modalTitle="Informações da encomenda" />
+      <Modal ref={confirmModalRef} modalTitle="Excluir encomenda" atTop />
     </Container>
   );
 }
