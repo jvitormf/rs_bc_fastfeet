@@ -35,7 +35,7 @@
     * [FastFeet](#fastfeet-configuration)
     * [Back-end](#back-end-configuration)
     * [Front-end](#front-end-configuration)
-* [License](#:memo:-License)
+* [License](#memo-License)
 * [Contact](#-contact)
 * [Acknowledgements](#-acknowledgements)
 <!-- * [Usage](#usage)
