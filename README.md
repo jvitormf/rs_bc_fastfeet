@@ -35,7 +35,7 @@
     * [FastFeet](#fastfeet-configuration)
     * [Back-end](#back-end-configuration)
     * [Front-end](#front-end-configuration)
-* [License](#memo-License)
+* [License](#:memo:-License)
 * [Contact](#-contact)
 * [Acknowledgements](#-acknowledgements)
 <!-- * [Usage](#usage)
@@ -228,7 +228,7 @@ Contributions are what make the open source community such an amazing place to b
 
 
 <!-- LICENSE -->
-# 📝 License
+# :memo: License
 
 Distributed under the MIT License. See [LICENSE](LICENSE.md) for more information.
 
