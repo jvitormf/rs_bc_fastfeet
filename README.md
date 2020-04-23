@@ -1,6 +1,5 @@
 
 <!-- PROJECT LOGO -->
-<br />
 <h1 align="center">
   <a href="https://github.com/jvitormf/rs_bc_fastfeet">
     <img src=".github/logo_fastfeet.png" alt="Logo" width="473" height="80">
@@ -35,7 +34,7 @@
     * [FastFeet](#fastfeet-configuration)
     * [Back-end](#back-end-configuration)
     * [Front-end](#front-end-configuration)
-* [License](#memo-License)
+* [License](#memo-license)
 * [Contact](#e-mail-contact)
 * [Acknowledgements](#exclamation-acknowledgements)
 <!-- * [Usage](#usage)
