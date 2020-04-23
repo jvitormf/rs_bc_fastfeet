@@ -22,22 +22,22 @@
 <!-- TABLE OF CONTENTS -->
 # Table of Contents
 
-* [About the Project](#about-the-project)
+* [About the Project](#-about-the-project)
   * [Built With](#built-with)
     * [Tools](#tools)
     * [Common (Back-end, Front-end)](#Common-(Back-end,-Front-end))
     * [Back-end](#back-end)
     * [Fron-end](#front-end)
-* [Getting Started](#getting-started)
+* [Getting Started](#-getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
     * [Docker](#docker-configuration)
     * [FastFeet](#fastfeet-configuration)
     * [Back-end](#back-end-configuration)
     * [Front-end](#front-end-configuration)
-* [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
+* [License](#memo-License)
+* [Contact](#-contact)
+* [Acknowledgements](#-acknowledgements)
 <!-- * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing) -->
