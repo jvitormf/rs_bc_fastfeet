@@ -6,6 +6,7 @@
   </a>
 </h1>
 
+<!-- BADGES -->
 <p align="center">
   <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/jvitormf/rs_bc_fastfeet?color=green">
   <img alt="GitHub forks" src="https://img.shields.io/github/forks/jvitormf/rs_bc_fastfeet">
@@ -21,15 +22,15 @@
 <!-- TABLE OF CONTENTS -->
 # Table of Contents
 
-* [About the Project](#-about-the-project)
-  * [Built With](#built-with)
+* [About the Project](#boom-about-the-project)
+  * [Built With](#gear-built-with)
     * [Tools](#tools)
     * [Common (Back-end, Front-end)](#Common-(Back-end,-Front-end))
     * [Back-end](#back-end)
     * [Fron-end](#front-end)
-* [Getting Started](#-getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
+* [Getting Started](#rocket-getting-started)
+  * [Prerequisites](#clipboard-prerequisites)
+  * [Installation](#zap-installation)
     * [Docker](#docker-configuration)
     * [FastFeet](#fastfeet-configuration)
     * [Back-end](#back-end-configuration)
@@ -37,16 +38,16 @@
 * [License](#memo-license)
 * [Contact](#e-mail-contact)
 * [Acknowledgements](#exclamation-acknowledgements)
+<!-- * [Contributing](#contributing) -->
 <!-- * [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing) -->
+* [Roadmap](#roadmap) -->
 
 
 
 <!-- ABOUT THE PROJECT -->
-# 💥 About The Project
+# :boom: About The Project
 
-<!-- ![Product Name Screen Shot][product-screenshot] -->
+<!--  -->
 <img src=".github/orders.png" alt="Orders">
 
 
@@ -60,7 +61,7 @@ The software is a fictitious transporter app and it has the following features:
 * Pickup and deliveries confirmation
 * Pickups are allowed between 08h and 18h
 
-## Built With
+## :gear: Built With
   ### Tools
   * [VSCode](https://code.visualstudio.com/)
   * [Docker](https://www.docker.com/)
@@ -114,18 +115,18 @@ The software is a fictitious transporter app and it has the following features:
 [Back to top](#table-of-Contents)
 
 <!-- GETTING STARTED -->
-# 🚀 Getting Started
+# :rocket: Getting Started
 
 To get a local copy up and running follow these simple steps.
 
-## Prerequisites
+## :clipboard: Prerequisites
 
 * Node.js - [Install guide](https://nodejs.org/en/download/package-manager/)
 * Yarn - [Install guide](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
 * Docker - [Install guide](https://docs.docker.com/get-docker/)
 
 
-## Installation
+## :zap: Installation
 
   ### Docker Configuration
 
@@ -194,11 +195,19 @@ To get a local copy up and running follow these simple steps.
     ```sh
     yarn start
     ```
-      
-
- 
+    
   [Back to top](#table-of-Contents)
 
+<!-- CONTRIBUTING -->
+<!-- # Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request -->
 
 <!-- USAGE EXAMPLES -->
 <!-- # Usage
@@ -216,16 +225,6 @@ See the [open issues](https://github.com/jvitormf/rs_bc_fastfeet/issues) for a l
 
 
 
-<!-- CONTRIBUTING -->
-<!-- # Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request -->
 
 
 <!-- LICENSE -->
@@ -261,4 +260,3 @@ Project Link: [https://github.com/jvitormf/rs_bc_fastfeet](https://github.com/jv
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- [issues-shield]: https://img.shields.io/github/issues/jvitormf/rs_bc_fastfeet.svg?style=flat-square
 [issues-url]: https://github.com/jvitormf/rs_bc_fastfeetissues -->
-[product-screenshot]: .github/orders.png
