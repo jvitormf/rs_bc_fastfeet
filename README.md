@@ -11,6 +11,7 @@
   <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/jvitormf/rs_bc_fastfeet?color=green">
   <img alt="GitHub forks" src="https://img.shields.io/github/forks/jvitormf/rs_bc_fastfeet">
   <img alt="GitHub stars" src="https://img.shields.io/github/stars/jvitormf/rs_bc_fastfeet">
+  <img alt="GitHub issues" src="https://img.shields.io/github/issues/jvitormf/rs_bc_fastfeet">
   <img alt="GitHub" src="https://img.shields.io/github/license/jvitormf/rs_bc_fastfeet">
   <a href="https://www.linkedin.com/in/jvitormf/">
     <img alt="LinkedIn" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=flat&logo=linkedin&colorB=555">
@@ -30,7 +31,7 @@
     * [Fron-end](#front-end)
 * [Getting Started](#rocket-getting-started)
   * [Prerequisites](#clipboard-prerequisites)
-  * [Installation](#zap-installation)
+  * [Configuration](#zap-configuration)
     * [Docker](#docker-configuration)
     * [FastFeet](#fastfeet-configuration)
     * [Back-end](#back-end-configuration)
@@ -60,6 +61,12 @@ The software is a fictitious transporter app and it has the following features:
 * file upload
 * Pickup and deliveries confirmation
 * Pickups are allowed between 08h and 18h
+
+## More details
+  * [FastFeet step 1](https://github.com/jvitormf/bootcamp-gostack-desafio-02)
+  * [FastFeet step 2](https://github.com/jvitormf/bootcamp-gostack-desafio-03)
+  * [FastFeet step 3](https://github.com/jvitormf/bootcamp-gostack-desafio-09)
+  * [FastFeet step 4](https://github.com/jvitormf/bootcamp-gostack-desafio-10)
 
 ## :gear: Built With
   ### Tools
@@ -112,7 +119,7 @@ The software is a fictitious transporter app and it has the following features:
 
 <!-- * [React Native](https://reactnative.dev/) -->
 
-[Back to top](#table-of-Contents)
+[:arrow_up: Back to top](#table-of-Contents)
 
 <!-- GETTING STARTED -->
 # :rocket: Getting Started
@@ -126,7 +133,7 @@ To get a local copy up and running follow these simple steps.
 * Docker - [Install guide](https://docs.docker.com/get-docker/)
 
 
-## :zap: Installation
+## :zap: Configuration
 
   ### Docker Configuration
 
@@ -160,9 +167,8 @@ To get a local copy up and running follow these simple steps.
     ```
   * In the backend folder, create a `.env` file with the `.env.example` and fill it with the required variables, (APP_SECRET and Mail variables)
 
-    * You can use [Mailtrap](https://mailtrap.io/how-it-works) to get the info to the Mail variables
+    * You can use [Mailtrap](https://mailtrap.io/how-it-works) to get the info for the Mail variables
   
-  * Run the command `yarn queue` to start the mail process.
 
   * Run the commands below to create the database tables with `migrate` and to populate the database run `seed` command. 
 
@@ -176,10 +182,12 @@ To get a local copy up and running follow these simple steps.
 
   * To sign in, use `admin@fastfeet.com` email and password `123456`
 
+
   * And finally to let the API up and running
     ```sh
       yarn dev
       ```
+  * Open another terminal and run the command `yarn queue` to start the mail process.
 
 ***
 
@@ -196,7 +204,7 @@ To get a local copy up and running follow these simple steps.
     yarn start
     ```
     
-  [Back to top](#table-of-Contents)
+  [:arrow_up: Back to top](#table-of-Contents)
 
 <!-- CONTRIBUTING -->
 <!-- # Contributing
@@ -242,19 +250,17 @@ LinkedIn - <https://www.linkedin.com/in/jvitormf/>
 
 Project Link: [https://github.com/jvitormf/rs_bc_fastfeet](https://github.com/jvitormf/rs_bc_fastfeet)
 
-[Back to top](#table-of-Contents)
+[:arrow_up: Back to top](#table-of-Contents)
 
 
 <!-- ACKNOWLEDGEMENTS -->
 # :exclamation: Acknowledgements
 
-* [FastFeet step 1](https://github.com/jvitormf/bootcamp-gostack-desafio-02)
-* [FastFeet step 2](https://github.com/jvitormf/bootcamp-gostack-desafio-03)
-* [FastFeet step 3](https://github.com/jvitormf/bootcamp-gostack-desafio-09)
-* [FastFeet step 4](https://github.com/jvitormf/bootcamp-gostack-desafio-10)
+* [Rocketseat GoStack Bootcamp](https://rocketseat.com.br/gostack)
 
 
-[Back to top](#table-of-Contents)
+
+[:arrow_up: Back to top](#table-of-Contents)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
