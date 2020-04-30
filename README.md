@@ -17,6 +17,11 @@
     <img alt="LinkedIn" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=flat&logo=linkedin&colorB=555">
   </a>
 </p>
+<p align="center">
+  <a href="LeiaMe.md">
+    Clique aqui para versão em Português.
+  </a>
+</p>
 
 
 
@@ -31,26 +36,28 @@
     * [Fron-end](#front-end)
 * [Getting Started](#rocket-getting-started)
   * [Prerequisites](#clipboard-prerequisites)
-  * [Configuration](#zap-configuration)
-    * [Docker](#docker-configuration)
-    * [FastFeet](#fastfeet-configuration)
-    * [Back-end](#back-end-configuration)
-    * [Front-end](#front-end-configuration)
+  * [Installation](#zap-installation)
+    * [Docker](#docker-installation)
+    * [FastFeet](#fastfeet-installation)
+    * [Back-end](#back-end-installation)
+    * [Front-end](#front-end-installation)
 * [License](#memo-license)
+* [Contributing](#bulb-contributing)
 * [Contact](#e-mail-contact)
 * [Acknowledgements](#exclamation-acknowledgements)
-<!-- * [Contributing](#contributing) -->
 <!-- * [Usage](#usage)
-* [Roadmap](#roadmap) -->
+* [Roadmap](#arrows_clockwise-roadmap) -->
 
 
 
 <!-- ABOUT THE PROJECT -->
 # :boom: About The Project
 
-<!--  -->
+<!-- Project image -->
 <img src=".github/orders.png" alt="Orders">
 
+
+### Description
 
 "Fastfeet" it's a challenge created by [Rocketseat](https://rocketseat.com.br/) for its students to create the whole application from scratch to fully working software. The idea is to use the skills learned in the GoStack Bootcamp, with the technologies Node.js, React and React Native.
 
@@ -62,7 +69,7 @@ The software is a fictitious transporter app and it has the following features:
 * Pickup and deliveries confirmation
 * Pickups are allowed between 08h and 18h
 
-## More details
+### More details
   * [FastFeet step 1](https://github.com/jvitormf/bootcamp-gostack-desafio-02)
   * [FastFeet step 2](https://github.com/jvitormf/bootcamp-gostack-desafio-03)
   * [FastFeet step 3](https://github.com/jvitormf/bootcamp-gostack-desafio-09)
@@ -77,11 +84,15 @@ The software is a fictitious transporter app and it has the following features:
   * [Postbird](https://www.electronjs.org/apps/postbird)
   * [Reactotron](https://infinite.red/reactotron)
 
+  [:arrow_up: Back to top](#table-of-Contents)
+
   ### Common (Back-end, Front-end)
   * [Eslint](https://eslint.org/)
   * [Prettier](https://prettier.io/)
   * [Date-fns](https://date-fns.org/)
   * [Yup](https://github.com/jquense/yup)
+
+  [:arrow_up: Back to top](#table-of-Contents)
 
   ### Back-End
   * [Bcryptjs](https://github.com/dcodeIO/bcrypt.js)
@@ -100,6 +111,8 @@ The software is a fictitious transporter app and it has the following features:
   * [Nodemon](https://nodemon.io/)
   * [Sucrase](https://sucrase.io/)
 
+  [:arrow_up: Back to top](#table-of-Contents)
+
   ### Front-End
   * [Axios](https://github.com/axios/axios)
   * [History](https://github.com/ReactTraining/history)
@@ -117,9 +130,10 @@ The software is a fictitious transporter app and it has the following features:
   * [Customize Cra](https://github.com/arackaf/customize-cra)
   * [React App Rewired](https://github.com/timarney/react-app-rewired)
 
+[:arrow_up: Back to top](#table-of-Contents)
+
 <!-- * [React Native](https://reactnative.dev/) -->
 
-[:arrow_up: Back to top](#table-of-Contents)
 
 <!-- GETTING STARTED -->
 # :rocket: Getting Started
@@ -132,10 +146,12 @@ To get a local copy up and running follow these simple steps.
 * Yarn - [Install guide](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
 * Docker - [Install guide](https://docs.docker.com/get-docker/)
 
+[:arrow_up: Back to top](#table-of-Contents)
 
-## :zap: Configuration
 
-  ### Docker Configuration
+## :zap: Installation
+
+  ### Docker Installation
 
   * Run the commands below to create the required containers
     ```sh
@@ -148,18 +164,22 @@ To get a local copy up and running follow these simple steps.
     docker run --name rds_fastfeet -p 6379:6379 -d -t redis:alpine
     ```
 
+  [:arrow_up: Back to top](#table-of-Contents)
+
 ***
 
-  ### FastFeet configuration
+  ### FastFeet Installation
 
   * Clone the rs_bc_fastfeet
     ```sh
     git clone https://github.com/jvitormf/rs_bc_fastfeet.git
     ```
 
+  [:arrow_up: Back to top](#table-of-Contents)
+
 ***
 
-  ### Back-end configuration
+  ### Back-end Installation
 
   * Navigate to the backend folder and run the command below to install the required packages
     ```sh
@@ -168,13 +188,15 @@ To get a local copy up and running follow these simple steps.
   * In the backend folder, create a `.env` file with the `.env.example` and fill it with the required variables, (APP_SECRET and Mail variables)
 
     * You can use [Mailtrap](https://mailtrap.io/how-it-works) to get the info for the Mail variables
-  
 
-  * Run the commands below to create the database tables with `migrate` and to populate the database run `seed` command. 
+
+  * Run the commands below to create the database tables.
 
     ```sh
       yarn sequelize db:migrate
       ```
+
+  * Run the commands below to populate the database tables.
 
     ```sh
       yarn sequelize db:seed:all
@@ -189,12 +211,14 @@ To get a local copy up and running follow these simple steps.
       ```
   * Open another terminal and run the command `yarn queue` to start the mail process.
 
+  [:arrow_up: Back to top](#table-of-Contents)
+
 ***
 
-  ### Front-end configuration
+  ### Front-end Installation
 
   * Navigate to the frontend folder and run the command below to install the required packages
-  
+
     ```sh
     yarn
     ```
@@ -203,19 +227,28 @@ To get a local copy up and running follow these simple steps.
     ```sh
     yarn start
     ```
-    
+
   [:arrow_up: Back to top](#table-of-Contents)
 
-<!-- CONTRIBUTING -->
-<!-- # Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+<!-- ROADMAP -->
+# :arrows_clockwise: Roadmap
+
+See the [open issues](https://github.com/jvitormf/rs_bc_fastfeet/issues) for a list of proposed features (and known issues).
+
+
+<!-- CONTRIBUTING -->
+# :bulb: Contributing
+
+Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request -->
+2. Create your Feature Branch (`git checkout -b feature`)
+3. Commit your Changes (`git commit -m 'Add some Feature'`)
+4. Push to the Branch (`git push origin Feature`)
+5. Open a Pull Request
+
+[:arrow_up: Back to top](#table-of-Contents)
 
 <!-- USAGE EXAMPLES -->
 <!-- # Usage
@@ -225,20 +258,12 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 
-
-<!-- ROADMAP -->
-<!-- # Roadmap
-
-See the [open issues](https://github.com/jvitormf/rs_bc_fastfeet/issues) for a list of proposed features (and known issues). -->
-
-
-
-
-
 <!-- LICENSE -->
 # :memo: License
 
 Distributed under the MIT License. See [LICENSE](LICENSE.md) for more information.
+
+[:arrow_up: Back to top](#table-of-Contents)
 
 
 <!-- CONTACT -->
@@ -258,11 +283,4 @@ Project Link: [https://github.com/jvitormf/rs_bc_fastfeet](https://github.com/jv
 
 * [Rocketseat GoStack Bootcamp](https://rocketseat.com.br/gostack)
 
-
-
 [:arrow_up: Back to top](#table-of-Contents)
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- [issues-shield]: https://img.shields.io/github/issues/jvitormf/rs_bc_fastfeet.svg?style=flat-square
-[issues-url]: https://github.com/jvitormf/rs_bc_fastfeetissues -->
