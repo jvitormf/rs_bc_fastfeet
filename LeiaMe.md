@@ -18,7 +18,7 @@
   </a>
 </p>
 <p align="center">
-  <a href="readme.md">
+  <a href="https://github.com/jvitormf/rs_bc_fastfeet">
     Click here for English version.
   </a>
 </p>
