@@ -232,9 +232,9 @@ To get a local copy up and running follow these simple steps.
 
 
 <!-- ROADMAP -->
-# :arrows_clockwise: Roadmap
+<!-- # :arrows_clockwise: Roadmap
 
-See the [open issues](https://github.com/jvitormf/rs_bc_fastfeet/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/jvitormf/rs_bc_fastfeet/issues) for a list of proposed features (and known issues). -->
 
 
 <!-- CONTRIBUTING -->
