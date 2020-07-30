@@ -3,6 +3,7 @@ import Order from '../models/Order';
 import Deliveryman from '../models/Deliveryman';
 import Recipient from '../models/Recipient';
 
+// Teste Git
 class DeliveriesController {
   async index(req, res) {
     const { page = 1 } = req.query;

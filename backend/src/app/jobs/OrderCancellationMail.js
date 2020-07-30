@@ -1,5 +1,6 @@
 import Mail from '../../lib/Mail';
 
+// teste commit
 class OrderCancellationMail {
   get key() {
     return 'OrderCancellationMail';
